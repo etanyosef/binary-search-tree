@@ -12,5 +12,19 @@ const prettyPrint = (node, prefix = '', isLeft = true) => {
     prettyPrint(node.left, `${prefix}${isLeft ? '    ' : '│   '}`, true);
 }
 
+function removeDuplicateSort(arr) {
+    // remove duplicates in array
+    const set = new Set(arr);
+    const cleanArr = [...arr];
+
+    // sort array
+    const sortedArr = cleanArr.sort( (a, b) => { return a - b });
+
+    return sortedArr;
+}
+
+const array = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
+
 // console.log(tree.buildTree([1, 2, 3]))
-prettyPrint(tree.buildTree([1, 2, 3, 4, 5, 6, 7]))
+prettyPrint(tree.buildTree(removeDuplicateSort(array)))
+prettyPrint(tree.buildTree(array));
