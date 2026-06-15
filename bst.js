@@ -16,7 +16,7 @@ export class Tree {
         if (start > end) return null;
 
         // sort array
-        arr = arr.sort( (a, b) => { return a - b;} );
+        // arr = arr.sort( (a, b) => { return a - b;} );
 
         let mid = start + Math.floor((end - start) / 2);
         let root = new Node(arr[mid]);
