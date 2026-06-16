@@ -12,10 +12,13 @@ const prettyPrint = (node, prefix = '', isLeft = true) => {
     prettyPrint(node.left, `${prefix}${isLeft ? '    ' : '│   '}`, true);
 }
 
-function removeDuplicateSort(arr) {
+
+const array = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
+
+const removeDuplicateSort = (arr) => {
     // remove duplicates in array
     const set = new Set(arr);
-    const cleanArr = [...arr];
+    const cleanArr = [...set];
 
     // sort array
     const sortedArr = cleanArr.sort( (a, b) => { return a - b });
@@ -23,8 +26,8 @@ function removeDuplicateSort(arr) {
     return sortedArr;
 }
 
-const array = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
+
 
 // console.log(tree.buildTree([1, 2, 3]))
 prettyPrint(tree.buildTree(removeDuplicateSort(array)))
-prettyPrint(tree.buildTree(array));
+// prettyPrint(tree.buildTree(array));
