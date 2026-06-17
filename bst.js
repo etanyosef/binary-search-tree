@@ -80,4 +80,8 @@ export class Tree {
         insertNode(this.root);
     }
 
+    deleteItem(value) {
+        
+    }
+
 }
