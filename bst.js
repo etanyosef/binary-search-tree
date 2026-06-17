@@ -1,3 +1,5 @@
+import { removeDuplicateThenSort } from "./functions.js";
+
 class Node {
     constructor(data) {
         this.data = data;
