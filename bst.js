@@ -44,4 +44,40 @@ export class Tree {
         return searchTree(this.root);
     }
 
+    insert(value) {
+        if (this.root === null) {
+            this.root = new Node(value);
+            return value + ' inserted to the tree.';
+        }
+
+        const insertNode = (currNode) => {
+            // do nothing if the value already exist
+            if (value === currNode.data) {
+                return;
+            }
+
+            // go left if the value is lesser than the current data
+            if (value < currNode.data) {
+                if (currNode.left === null) {
+                    currNode.left = new Node(value);
+                    return;
+                }
+                insertNode(currNode.left);
+                return;
+            }
+
+            // go right if the value is greater than the current data
+            if (value > currNode.data) {
+                if (currNode.right === null) {
+                    currNode.right = new Node(value);
+                    return;
+                }
+                insertNode(currNode.right);
+                return;
+            }
+        }
+
+        insertNode(this.root);
+    }
+
 }
