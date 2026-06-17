@@ -30,4 +30,18 @@ export class Tree {
         return root;
     }
 
+    includes(value) {
+        const searchTree = (currNode) => {
+            if (currNode === null) return false;
+
+            if (value === currNode.data) return true;
+
+            if (value < currNode.data) return searchTree(currNode.left);
+
+            if (value > currNode.data) return searchTree(currNode.right);
+        };
+
+        return searchTree(this.root);
+    }
+
 }
