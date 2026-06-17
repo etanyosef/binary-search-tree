@@ -9,3 +9,7 @@ const tree = new Tree(array);
 // prettyPrint(tree.buildTree(array));
 // console.log(tree)
 console.log(prettyPrint(tree.root))
+
+console.log(tree.root.data)
+
+console.log(tree.includes(2))
