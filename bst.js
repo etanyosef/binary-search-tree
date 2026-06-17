@@ -10,8 +10,8 @@ class Node {
 
 export class Tree {
     constructor(arr) {
-        this.root = null;
-        this.arr = arr;
+        const cleanArray = removeDuplicateThenSort(arr);
+        this.root = this.buildTree(cleanArray);
     }
 
     buildTree(arr, start = 0, end = arr.length) {
