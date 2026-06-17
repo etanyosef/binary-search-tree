@@ -13,3 +13,6 @@ console.log(prettyPrint(tree.root))
 console.log(tree.root.data)
 
 console.log(tree.includes(2))
+console.log(tree.insert(2))
+console.log(tree.includes(2))
+prettyPrint(tree.root)
