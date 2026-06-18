@@ -19,3 +19,7 @@ prettyPrint(tree.root)
 console.log(tree.deleteItem(2))
 console.log(tree.includes(2))
 prettyPrint(tree.root)
+
+const values = [];
+console.log(tree.levelOrderForEach((value) => { values.push(value)}))
+console.log(values.length)
