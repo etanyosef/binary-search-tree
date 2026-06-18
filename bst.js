@@ -81,7 +81,46 @@ export class Tree {
     }
 
     deleteItem(value) {
-        
+        if (this.root === null) return null;
+
+        const deleteNode = (currNode, value) => {
+            // value not found
+            if (currNode === null) return null;
+
+            if (value < currNode.data) {
+                currNode.left = deleteNode(currNode.left, value);
+            } 
+            // go to left node
+            else if (value > currNode.data) {
+                currNode.right = deleteNode(currNode.right, value);
+            } 
+            // go to right node
+            else {
+                if (currNode.left === null) return currNode.right;
+
+                if (currNode.right === null) return currNode.left;
+
+                const children = getChildren(currNode);
+
+                currNode.data = children.data;
+
+                currNode.right = deleteNode(currNode.right, children.data);
+            }
+
+            return currNode;
+        };
+
+        const getChildren = (currNode) => {
+            currNode = currNode.right;
+
+            while (currNode !== null && currNode.left !== null) {
+                currNode = currNode.left;
+            }
+
+            return currNode;
+        };
+
+        this.root = deleteNode(this.root, value);
     }
 
 }
