@@ -123,4 +123,24 @@ export class Tree {
         this.root = deleteNode(this.root, value);
     }
 
+    levelOrderForEach(callback) {
+        if (typeof callback !== 'function') {
+            throw new Error('Callback is not a function!');
+        }
+
+        if (this.root === null) return;
+
+        const queue = [this.root];
+
+        while (queue.length > 0) {
+            const currentNode = queue.shift();
+
+            callback(currentNode.data);
+
+            if (currentNode.left !== null) queue.push(currentNode.left);
+
+            if (currentNode.right !== null) queue.push(currentNode.right);
+        }
+    }
+
 }
