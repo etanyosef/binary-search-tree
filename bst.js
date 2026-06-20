@@ -143,4 +143,20 @@ export class Tree {
         }
     }
 
+    inOrderForEach(callback) {
+        if (typeof callback !== 'function') {
+            throw new Error('Callback is not a function!');
+        }
+        
+        const traverse = (currentNode) => {
+            if (currentNode === null) return;
+
+            traverse(currentNode.left);
+            callback(currentNode.data);
+            traverse(currentNode.right);
+        }
+
+        traverse(this.root);
+    }
+
 }
