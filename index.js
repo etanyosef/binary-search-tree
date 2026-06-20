@@ -23,3 +23,7 @@ prettyPrint(tree.root)
 const values = [];
 console.log(tree.levelOrderForEach((value) => { values.push(value)}))
 console.log(values.length)
+
+const vals = [];
+console.log(tree.inOrderForEach((val) => {vals.push(val)}))
+console.log(vals)
