@@ -27,3 +27,4 @@ console.log(values.length)
 const vals = [];
 console.log(tree.inOrderForEach((val) => {vals.push(val)}))
 console.log(vals)
+console.log(tree.height(67))
