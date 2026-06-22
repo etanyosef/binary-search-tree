@@ -159,4 +159,36 @@ export class Tree {
         traverse(this.root);
     }
 
+    preOrderForEach(callback) {
+        if (typeof callback !== 'function') {
+            throw new Error('Callback is not a function');
+        }
+
+        const traverse = (currentNode) => {
+            if (currentNode === null) return;
+
+            callback(currentNode.data);
+            traverse(currentNode.left);
+            traverse(currentNode.right);
+        }
+
+        traverse(this.root);
+    }
+
+    postOrderForEach(callback) {
+        if (typeof callback !== 'function') {
+            throw new Error('Callback is not a function');
+        }
+
+        const traverse = (currentNode) => {
+            if (currentNode === null) return;
+
+            traverse(currentNode.left);
+            traverse(currentNode.right);
+            callback(currentNode.data);
+        }
+
+        traverse(this.root);
+    }
+
 }
