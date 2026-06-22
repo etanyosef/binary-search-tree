@@ -191,4 +191,31 @@ export class Tree {
         traverse(this.root);
     }
 
+    height(value) {
+        const getHeight = (currentNode) => {
+            if (currentNode === null) return -1;
+
+            const leftHeight = getHeight(currentNode.left);
+            const rightHeight = getHeight(currentNode.right);
+
+            return Math.max(leftHeight, rightHeight) + 1;
+        }
+
+        const searchNode = (currentNode) => {
+            if (currentNode === null) return null;
+
+            if (currentNode.data === value) return currentNode;
+
+            if (value < currentNode.data) return searchNode(currentNode.left);
+
+            if (value > currentNode.data) return searchNode(currentNode.right);
+        }
+
+        const node = searchNode(this.root);
+
+        if (node === null) return undefined;
+
+        return getHeight(node);
+    }
+
 }
