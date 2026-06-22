@@ -218,4 +218,22 @@ export class Tree {
         return getHeight(node);
     }
 
+    depth(value) {
+        const findDepth = (currentNode, currentDepth = 0) => {
+            if (currentNode === null) return undefined;
+
+            if (currentNode.data === value) return currentDepth;
+
+            if (value < currentNode.data) {
+                return findDepth(currentNode.left, currentDepth++);
+            }
+
+            if (value > currentNode.data) {
+                return findDepth(currentNode.right, currentDepth++);
+            }
+        }
+
+        return findDepth(this.root);
+    }
+
 }
