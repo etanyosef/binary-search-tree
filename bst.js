@@ -236,4 +236,41 @@ export class Tree {
         return findDepth(this.root);
     }
 
+    isBalanced() {
+        const checkBalance = (currentNode) => {
+            if (currentNode === null) {
+                return {
+                    balance: true,
+                    height: -1
+                };
+            }
+
+            const left = checkBalance(currentNode.left);
+            const right = checkBalance(currentNode.right);
+
+            const heightDiff = Math.abs(left.height - right.height);
+
+            const isTreeBalanced = left.balance && right.balance && heightDiff <= 1;
+
+            const currentNodeHeight = Math.max(left.height, right.height) + 1;
+
+            return {
+                balance: isTreeBalanced,
+                height: currentNodeHeight
+            };
+        }
+
+        return checkBalance(this.root).balance;
+    }
+
+    rebalance() {
+        const sortedArray = [];
+
+        this.inOrderForEach( (value) => {
+            sortedArray.push(value);
+        })
+
+        this.root = this.buildTree(sortedArray);
+    }
+
 }
