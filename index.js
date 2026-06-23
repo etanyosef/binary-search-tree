@@ -30,3 +30,13 @@ console.log(vals)
 console.log(tree.height(67))
 
 console.log(tree.depth(8))
+console.log(tree.isBalanced())
+console.log(tree.deleteItem(1))
+console.log(tree.deleteItem(4))
+console.log(tree.deleteItem(7))
+console.log(tree.deleteItem(3))
+console.log(tree.isBalanced())
+console.log(prettyPrint(tree.root))
+tree.rebalance();
+console.log(prettyPrint(tree.root))
+console.log(tree.isBalanced())
